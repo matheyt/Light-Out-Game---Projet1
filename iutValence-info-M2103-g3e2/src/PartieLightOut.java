@@ -4,7 +4,7 @@
  */
 public class PartieLightOut {
 
-
+  private Plateau plateau;
 
 /**
  * méthode permettant de jouer au jeu
