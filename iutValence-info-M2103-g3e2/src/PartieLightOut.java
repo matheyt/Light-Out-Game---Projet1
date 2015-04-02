@@ -13,6 +13,8 @@ public class PartieLightOut {
  */
     public void jouer()
     {
+    	plateau = new Plateau();
+    	
     	
     }
 }
