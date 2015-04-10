@@ -1,16 +1,42 @@
 /**
- * case composant un plateau
- * @author pradello
+ * this class is the component of board's game
+ * it could have two states : on - off
+ * it could be 
+ * @author MATHEY-PRADELLE
  *
  */
-public class Case {
+public class Square {
 
-	public final static boolean CASE_ALLUMEE = true;
-	public final static boolean CASE_ETEINTE = false;
+	/**
+	 * state of square (lit or not)
+	 */
+	private boolean isLit;
 	
-	private boolean etatCase;
-	
-	public Case()
+	/**
+	 * create a Light-off square
+	 * default state
+	 */
+	public Square()
 	{
+		this.isLit = false;
 	}
+
+	/**
+	 * Returns the current square state (lit or not)
+	 * @return square's state  (lit or not)
+	 */
+	public boolean isLit() {
+		return this.isLit;
+	}
+
+	/**
+	 * change the value of squareState (it light on the square)
+	 */
+	public void turnOn() 
+	{
+		this.isLit = true;
+	}
+	
+
+	
 }

@@ -1,21 +1,28 @@
+import java.security.AllPermission;
+
 /**
- * permet de jouer au jeu LightOut 
+ * this class allow to play at LightOutGame 
  * @author MATHEY-PRADELLE
  */
-public class PartieLightOut {
+public class LightOutGame {
 
-  private Plateau plateau;
+ /**
+ * the board's game   
+ */
+private Board board;
 
 /**
- * méthode permettant de jouer au jeu; 
- * arret lorsque toute les cases du plateau sont éteintes
+ * starts playing the game; 
+ * it stops when all the squares are turned off
  * 
  */
-    public void jouer()
+    public void play()
     {
-    	plateau = new Plateau();
-
-    			
+    	this.board = new Board();
+    	while (this.board.allIsOff()== false)
+    	{
+          null;
+    	}
     	
     }
 }
