@@ -27,3 +27,4 @@ private Board board;
     }
 }
 
+//TODO create a method for change the state of square (take is position and change the state of the square and the adjacent)

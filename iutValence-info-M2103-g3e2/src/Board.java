@@ -93,6 +93,7 @@ public class Board {
 				if (this.board[lineNumber][columnNumber].isLit()) return false;
 		return true;
 	}
+	//TODO
 
 
 }
