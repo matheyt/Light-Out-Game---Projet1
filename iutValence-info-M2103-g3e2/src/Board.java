@@ -9,22 +9,22 @@ public class Board {
 	/**
 	 *  default number of column
 	 */
-	public final static int NB_COLUMN=5;
+	public final static int DEFAULT_NUMBER_OF_COLUMNS=5;
 	
 	/**
 	 *  default number of line
 	 */
-	public final static int NB_LINE=5;
+	public final static int DEFAULT_NUMBER_OF_LINES=5;
 	
 	/**
 	 * number of line's board
 	 */
-	private final int nbLine;
+	private final int numberOfLines;
 	
 	/**
 	 * number of column's board
 	 */
-	private final int nbColumn;
+	private final int numberOfColumns;
 	
 	
 	/**
@@ -38,48 +38,40 @@ public class Board {
 	 */
 	public Board()
 	{
-		this.board = new Square[NB_COLUMN][NB_LINE];
-		this.nbColumn = NB_COLUMN;
-		this.nbLine = NB_LINE;
+		this.board = new Square[DEFAULT_NUMBER_OF_COLUMNS][DEFAULT_NUMBER_OF_LINES];
+		this.numberOfColumns = DEFAULT_NUMBER_OF_COLUMNS;
+		this.numberOfLines = DEFAULT_NUMBER_OF_LINES;
 	}
 
 	/**
 	 * create a board of square
-	 * @param nbOfColumn number of column for the board
-	 * @param nbOfLine number of line for board
+	 * @param numberOfColumns number of column for the board
+	 * @param numberOfLines number of line for board
 	 */
-	public Board(int nbOfColumn,int nbOfLine)
+	public Board(int numberOfColumns,int numberOfLines)
 	{
-		this.board = new Square[nbOfColumn][nbOfLine];
-		this.nbColumn = nbOfColumn;
-		this.nbLine = nbOfLine;
+		this.board = new Square[numberOfColumns][numberOfLines];
+		this.numberOfColumns = numberOfColumns;
+		this.numberOfLines = numberOfLines;
 	}
 
-	/**
-	 * get the board
-	 * @return board board's game 
-	 */
-	public Square[][] getBoard() 
-	{
-		return this.board;
-	}
-	
+
 	/**
 	 * get the number of line of current board
 	 * @return nbLine
 	 */
-	public int getNbLine() 
+	public int getNumberOfLines() 
 	{
-		return this.nbLine;
+		return this.numberOfLines;
 	}
 	
 	/**
 	 * get the number of column of current board
 	 * @return nbColumn
 	 */
-	public int getNbColumn() 
+	public int getNumberOfColumns() 
 	{
-		return this.nbColumn;
+		return this.numberOfColumns;
 	}
 	
 	/**
@@ -88,12 +80,23 @@ public class Board {
 	 */
 	public boolean allIsOff()
 	{
-		for (int lineNumber= 0; lineNumber < this.nbLine; lineNumber++)	
-			for (int columnNumber= 0; columnNumber < this.nbColumn; columnNumber++)
+		for (int lineNumber= 0; lineNumber < this.numberOfLines; lineNumber++)	
+			for (int columnNumber= 0; columnNumber < this.numberOfColumns; columnNumber++)
 				if (this.board[lineNumber][columnNumber].isLit()) return false;
 		return true;
 	}
-	//TODO
+	/**
+	 * change the state of the selected square and his adjacent squares
+	 * @param position	Position of the selected square
+	 */
+	public void changeSelectedSquare (Position position)
+	{
+		this.board[position.getPositionX()][position.getPositionY()].changeState();
+		this.board[position.getPositionX()+1][position.getPositionY()].changeState();
+		this.board[position.getPositionX()-1][position.getPositionY()].changeState();
+		this.board[position.getPositionX()][position.getPositionY()+1].changeState();
+		this.board[position.getPositionX()][position.getPositionY()-1].changeState();
+	}
 
 
 }

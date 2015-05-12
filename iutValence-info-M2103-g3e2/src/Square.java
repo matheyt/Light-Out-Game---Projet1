@@ -18,7 +18,7 @@ public class Square {
 	 */
 	public Square()
 	{
-		this.isLit = false;
+		this.isLit = true;
 	}
 
 	/**
@@ -30,13 +30,12 @@ public class Square {
 	}
 
 	/**
-	 * change the value of squareState (it light on the square)
+	 * change the value of squareState (it light or not on the square)
 	 */
-	public void turnOn() 
+	public void changeState()
 	{
-		this.isLit = true;
+		if (this.isLit) this.isLit = false;
+		else  this.isLit = true;
 	}
 	
-
-	//TODO
 }

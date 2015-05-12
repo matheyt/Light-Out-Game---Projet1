@@ -1,4 +1,4 @@
-import java.security.AllPermission;
+
 
 /**
  * this class allow to play at LightOutGame 
@@ -11,6 +11,14 @@ public class LightOutGame {
  */
 private Board board;
 
+
+/**
+ * generate the board's game
+ */
+ public LightOutGame()
+ {
+	 this.board = new Board();
+ }
 /**
  * starts playing the game; 
  * it stops when all the squares are turned off
@@ -18,13 +26,11 @@ private Board board;
  */
     public void play()
     {
-    	this.board = new Board();
-    	while (this.board.allIsOff()== false)
+    	while (!this.board.allIsOff())
     	{
-          null;
+			this.board.changeSelectedSquare();//TODO   //take a random position
     	}
     	
     }
 }
 
-//TODO create a method for change the state of square (take is position and change the state of the square and the adjacent)
