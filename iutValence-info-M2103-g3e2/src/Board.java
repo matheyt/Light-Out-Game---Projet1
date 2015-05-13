@@ -38,19 +38,26 @@ public class Board {
 	 */
 	public Board()
 	{
-		this.board = new Square[DEFAULT_NUMBER_OF_COLUMNS][DEFAULT_NUMBER_OF_LINES];
+		this.board = new Square[DEFAULT_NUMBER_OF_LINES][DEFAULT_NUMBER_OF_COLUMNS];
+		for(int lineNumber =0; lineNumber<DEFAULT_NUMBER_OF_LINES;lineNumber++)
+		{
+			for(int columnNumber = 0; columnNumber < DEFAULT_NUMBER_OF_COLUMNS; columnNumber++)
+			{
+				this.board[lineNumber][columnNumber]= new Square();
+			}
+		}
 		this.numberOfColumns = DEFAULT_NUMBER_OF_COLUMNS;
 		this.numberOfLines = DEFAULT_NUMBER_OF_LINES;
 	}
 
 	/**
 	 * create a board of square
-	 * @param numberOfColumns number of column for the board
-	 * @param numberOfLines number of line for board
+	 * @param numberOfLines number of line for the board
+	 * @param numberOfColumns number of columns for board
 	 */
-	public Board(int numberOfColumns,int numberOfLines)
+	public Board(int numberOfLines,int numberOfColumns)
 	{
-		this.board = new Square[numberOfColumns][numberOfLines];
+		this.board = new Square[numberOfLines][numberOfColumns];
 		this.numberOfColumns = numberOfColumns;
 		this.numberOfLines = numberOfLines;
 	}
@@ -91,11 +98,41 @@ public class Board {
 	 */
 	public void changeSelectedSquare (Position position)
 	{
+		
 		this.board[position.getPositionX()][position.getPositionY()].changeState();
 		this.board[position.getPositionX()+1][position.getPositionY()].changeState();
 		this.board[position.getPositionX()-1][position.getPositionY()].changeState();
 		this.board[position.getPositionX()][position.getPositionY()+1].changeState();
 		this.board[position.getPositionX()][position.getPositionY()-1].changeState();
+	}
+	  
+	public boolean isPositionAvailable(Position position)
+	{
+		if (position.getPositionX()<0|position.getPositionX()>this.getNumberOfColumns())
+			return false;
+		if (position.getPositionY()<0|position.getPositionY()>this.getNumberOfLines())
+			return false;
+		return true;
+			
+	}
+	
+	/**
+	 * Get the representation in ASCII art of the board
+	 */
+	public String toString()
+	{
+		String stringBoard = "------------------\n";
+		for (int lineNumber = 0; lineNumber <this.numberOfLines; lineNumber++)
+		{
+			for (int columnNumber = 0; columnNumber < this.numberOfColumns;columnNumber++)
+			{
+				if (this.board[lineNumber][columnNumber].isLit())
+					stringBoard += "	1	";
+				else stringBoard += "	0	";
+			}
+			stringBoard += "\n------------------------------------------------\n";
+		}
+		return stringBoard;
 	}
 
 

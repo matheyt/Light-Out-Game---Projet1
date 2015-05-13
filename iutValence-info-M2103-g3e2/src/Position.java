@@ -28,7 +28,8 @@ public class Position {
 	}
 	
 	/**
-	 * @param positionX
+	 * change the X position 
+	 * @param positionX  the position X
 	 */
 	public void setPositionX(int positionX) 
 	{
@@ -37,7 +38,8 @@ public class Position {
 	
 	
 	/**
-	 * @param positionY
+	 * change the Y position
+	 * @param positionY the position Y
 	 */
 	public void setPositionY(int positionY) 
 	{
@@ -59,5 +61,5 @@ public class Position {
 		return this.positionY;
 	}
 
-
+//TODO adjacent position
 }

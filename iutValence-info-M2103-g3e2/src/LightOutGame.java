@@ -28,7 +28,8 @@ private Board board;
     {
     	while (!this.board.allIsOff())
     	{
-			this.board.changeSelectedSquare();//TODO   //take a random position
+			this.board.changeSelectedSquare(new GeneratorRandomPosition().getPosition());
+			System.out.println(this.board.toString());
     	}
     	
     }
