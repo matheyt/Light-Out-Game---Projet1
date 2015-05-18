@@ -16,6 +16,26 @@ public class Position {
 	private int positionY;
 	
 	/**
+	 * position at right at the current position
+	 */
+	private Position rightPosition;
+
+	/**
+	 * position at left at the current position
+	 */
+	private Position leftPosition;
+	
+	/**
+	 * position at up at the current position
+	 */
+	private Position upPosition;
+	
+	/**
+	 * position at down at the current position
+	 */
+	private Position downPosition;
+	
+	/**
 	 * built a position at a number of line / number of column
 	 * @param positionX the number of line
 	 * @param positionY the number of column
@@ -24,7 +44,10 @@ public class Position {
 	{
 		this.positionX = positionX;
 		this.positionY = positionY;
-				
+		this.rightPosition = new Position(positionX+1,positionY);
+		this.leftPosition = new Position(positionX-1,positionY);
+		this.upPosition = new Position(positionX,positionY+1);
+		this.rightPosition = new Position(positionX,positionY-1);
 	}
 	
 	/**
@@ -60,6 +83,38 @@ public class Position {
 	public int getPositionY() {
 		return this.positionY;
 	}
+	
+	/**
+	 * return the right position of the square
+	 * @return the adjacent position of the square
+	 */
+	public Position getRightPosition() {
+		return this.rightPosition;
+	}
+	
+	/**
+	 * return the left position of the square
+	 * @return the adjacent position of the square
+	 */
+	public Position getLeftPosition() {
+		return this.leftPosition;
+	}
+	
+	/**
+	 * return the up position of the square
+	 * @return the adjacent position of the square
+	 */
+	public Position getUpPosition() {
+		return this.upPosition;
+	}
 
-//TODO adjacent position
+	/**
+	 * return the down position of the square
+	 * @return the adjacent position of the square
+	 */
+	public Position getDownPosition() {
+		return this.downPosition;
+	}
+	
+
 }
