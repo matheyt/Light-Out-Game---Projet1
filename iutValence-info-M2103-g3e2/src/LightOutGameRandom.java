@@ -4,7 +4,7 @@
  * this class allow to play at LightOutGame 
  * @author MATHEY-PRADELLE
  */
-public class LightOutGame {
+public class LightOutGameRandom {
 
  /**
  * the board's game   
@@ -12,13 +12,15 @@ public class LightOutGame {
 private Board board;
 
 
+
 /**
  * generate the board's game
  */
- public LightOutGame()
+ public LightOutGameRandom()
  {
 	 this.board = new Board();
  }
+ 
 /**
  * starts playing the game; 
  * it stops when all the squares are turned off
@@ -28,8 +30,9 @@ private Board board;
     {
     	while (!this.board.allIsOff())
     	{
-			this.board.changeSelectedSquare(new GeneratorRandomPosition().getPosition());
-			System.out.println(this.board.toString());
+			
+			this.board.changeSelectedSquare(GameEntry.getChoice());
+			GameOut.getOut(this.board.toString());
     	}
     	
     }

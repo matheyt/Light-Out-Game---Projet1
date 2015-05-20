@@ -1,3 +1,5 @@
+import java.util.Random;
+
 
 /**
  *This class generate a random position 
@@ -17,7 +19,10 @@ public class GeneratorRandomPosition
 	 */
 	public GeneratorRandomPosition()
 	{
-        this.position = new Position((int)Math.random()*(Board.DEFAULT_NUMBER_OF_LINES),(int)Math.random()*(Board.DEFAULT_NUMBER_OF_COLUMNS));
+		Random random = new Random();
+		
+		
+        this.position = new Position(random.nextInt(Board.DEFAULT_NUMBER_OF_LINES-1),random.nextInt(Board.DEFAULT_NUMBER_OF_COLUMNS-1));
 	}
 	
 	

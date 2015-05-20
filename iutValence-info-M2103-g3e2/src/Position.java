@@ -15,25 +15,6 @@ public class Position {
 	 */
 	private int positionY;
 	
-	/**
-	 * position at right at the current position
-	 */
-	private Position rightPosition;
-
-	/**
-	 * position at left at the current position
-	 */
-	private Position leftPosition;
-	
-	/**
-	 * position at up at the current position
-	 */
-	private Position upPosition;
-	
-	/**
-	 * position at down at the current position
-	 */
-	private Position downPosition;
 	
 	/**
 	 * built a position at a number of line / number of column
@@ -44,10 +25,6 @@ public class Position {
 	{
 		this.positionX = positionX;
 		this.positionY = positionY;
-		this.rightPosition = new Position(positionX+1,positionY);
-		this.leftPosition = new Position(positionX-1,positionY);
-		this.upPosition = new Position(positionX,positionY+1);
-		this.rightPosition = new Position(positionX,positionY-1);
 	}
 	
 	/**
@@ -85,35 +62,43 @@ public class Position {
 	}
 	
 	/**
-	 * return the right position of the square
-	 * @return the adjacent position of the square
+	 * create a position above the current position
+	 * @return position  the position above the current position
 	 */
-	public Position getRightPosition() {
-		return this.rightPosition;
+	
+	public Position createAbovePosition()
+	{
+		return new Position(this.positionX,this.positionY+1);
 	}
 	
 	/**
-	 * return the left position of the square
-	 * @return the adjacent position of the square
+	 * create a position below the current position
+	 * @return position  the position below the current position
 	 */
-	public Position getLeftPosition() {
-		return this.leftPosition;
+	
+	public Position createBelowPosition()
+	{
+		return new Position(this.positionX,this.positionY-1);
 	}
 	
 	/**
-	 * return the up position of the square
-	 * @return the adjacent position of the square
+	 * create a position at right of the current position
+	 * @return position  the position situate at the right of the current position
 	 */
-	public Position getUpPosition() {
-		return this.upPosition;
+	
+	public Position createRightPosition()
+	{
+		return new Position(this.positionX+1,this.positionY);
 	}
-
+	
 	/**
-	 * return the down position of the square
-	 * @return the adjacent position of the square
+	 * create  a position at right of the current position
+	 * @return position  the position situate at the left of the current position
 	 */
-	public Position getDownPosition() {
-		return this.downPosition;
+	
+	public Position createLeftPosition()
+	{
+		return new Position(this.positionX-1,this.positionY);
 	}
 	
 
