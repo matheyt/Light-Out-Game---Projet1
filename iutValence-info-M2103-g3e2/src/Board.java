@@ -118,9 +118,9 @@ public class Board {
 	 */
 	public boolean isPositionAvailable(Position position)
 	{
-		if (position.getPositionX()<0|position.getPositionX()>this.getNumberOfColumns())
+		if (position.getPositionX()<0|position.getPositionX()>=this.getNumberOfColumns())
 			return false;
-		if (position.getPositionY()<0|position.getPositionY()>this.getNumberOfLines())
+		if (position.getPositionY()<0|position.getPositionY()>=this.getNumberOfLines())
 			return false;
 		return true;
 			
@@ -131,7 +131,7 @@ public class Board {
 	 */
 	public String toString()
 	{
-		String stringBoard = "-----------------------------------------------\n";
+		String stringBoard = "------------------------------------------------\n";
 		for (int lineNumber = 0; lineNumber <this.numberOfLines; lineNumber++)
 		{
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns;columnNumber++)
