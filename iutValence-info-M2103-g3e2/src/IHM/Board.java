@@ -132,16 +132,16 @@ public class Board {
 	 */
 	public String toString()
 	{
-		String stringBoard = "------------------------------------------------\n";
+		String stringBoard = "---------------\n";
 		for (int lineNumber = 0; lineNumber <this.numberOfLines; lineNumber++)
 		{
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns;columnNumber++)
 			{
 				if (this.board[lineNumber][columnNumber].isLit())
-					stringBoard += "	1	";
-				else stringBoard += "	0	";
+					stringBoard += "|1|";
+				else stringBoard += "|0|";
 			}
-			stringBoard += "\n------------------------------------------------\n";
+			stringBoard += "\n---------------\n";
 		}
 		return stringBoard;
 	}

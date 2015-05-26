@@ -1,7 +1,10 @@
 package IHM;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 /**
@@ -11,9 +14,17 @@ import javax.swing.WindowConstants;
 public class Interface implements Runnable
 {
 	
+	
+	
+	/**
+	 * 
+	 */
 	private ButtonGrid buttonGrid;
 	
-	public void Interface()
+	/**
+	 * 
+	 */
+	private void Interface()
 	{
 		JFrame window = new JFrame();
 		
@@ -22,6 +33,7 @@ public class Interface implements Runnable
 		window.setVisible(true);
 		window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		this.buttonGrid = new ButtonGrid();
+		window.add(this.buttonGrid);
 	}
 	
 	public void run()
@@ -29,4 +41,12 @@ public class Interface implements Runnable
 		this.Interface();
 	}
 
+	/**
+	 * @param display the ASCII representation of the board
+	 */
+	public void displayBoard(String display)
+	{
+		String string = display;
+	}
+	
 }
