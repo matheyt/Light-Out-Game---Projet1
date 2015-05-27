@@ -3,8 +3,8 @@ package IHM;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JButton;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class ButtonGrid extends JPanel
 {
+	
 
 	/**
 	 * create the button grid
@@ -22,7 +23,7 @@ public class ButtonGrid extends JPanel
 	{
 		this.createButtonGrid();
 	}
-	
+
 	/**
 	 * private method : add a grid of button
 	 */
@@ -33,10 +34,12 @@ public class ButtonGrid extends JPanel
 		{
 			for (int numberOfLine =0; numberOfLine < Board.DEFAULT_NUMBER_OF_LINES;numberOfLine++)
 			{
-				JButton button = new JButton();
-				button.setFocusable(false);		
+				JButtonP button = new JButtonP(numberOfColumn,numberOfLine);
+				button.setFocusable(false);
+				this.add(button);	
 			}
 		}
+		
 	}
 	
 	

@@ -13,9 +13,7 @@ import java.awt.event.MouseListener;
  */
 public class Interface implements Runnable
 {
-	
-	
-	
+
 	/**
 	 * 
 	 */
@@ -41,12 +39,8 @@ public class Interface implements Runnable
 		this.Interface();
 	}
 
-	/**
-	 * @param display the ASCII representation of the board
-	 */
-	public void displayBoard(String display)
-	{
-		String string = display;
-	}
+
+
+
 	
 }
