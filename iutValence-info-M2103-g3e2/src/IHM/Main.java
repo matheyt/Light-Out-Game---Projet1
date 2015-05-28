@@ -13,9 +13,15 @@ public class Main {
 	 * @param args 
 	 */
 	public static void main(String[] args) 
-	{//new LightOutGameRandom().play();
-	  SwingUtilities.invokeLater(new Interface());
-	  
+	{
+		Board board = new Board();
+		Interface interfaceGame = new Interface(board.toString());
+		
+	    LightOutGameRandom lightOutGame = new LightOutGameRandom(interfaceGame, board);
+	    SwingUtilities.invokeLater(lightOutGame.getInterface());
+	    lightOutGame.play();
+	    
+	    
 	}
 
 }

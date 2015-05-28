@@ -18,18 +18,20 @@ private Board board;
 private GameEntry gameEntry;
 
 /**
- * the gameOut's game
+ * the Interface's game
  */
-private GameOut gameOut;
+private Interface interfaceGame;
 
 /**
  * generate the board's game
+ * @param interfaceGame interfaceGame
+ * @param board boardGame
  */
- public LightOutGameRandom()
+ public LightOutGameRandom(Interface interfaceGame, Board board)
  {
-	 this.board = new Board();
+	 this.board = board;
 	 this.gameEntry = new GameEntry();
-	 this.gameOut= new GameOut(this.board.toString());
+	 this.interfaceGame= interfaceGame;
  }
  
 /**
@@ -49,10 +51,19 @@ private GameOut gameOut;
 				position = this.gameEntry.getCurrentPosition();
 			}
 			this.board.changeSelectedSquare(position);
-			this.gameOut.setDisplay(this.board.toString());
-			new GameOut(this.board.toString()).GetOut();
+			
+			
     	}
     	
+    }
+    
+    /**
+     * get the game interface
+     * @return the interface's game
+     */
+    public Interface getInterface()
+    {
+    	return this.interfaceGame;
     }
 }
 
